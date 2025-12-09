@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<title>Վեբ Ծրագրավորման Թեստ</title>
+
+<style>
+    :root {
+        --bg: #f5f7fb;
+        --card-bg: #ffffff;
+        --primary: #4a6cf7;
+        --primary-hover: #3453e6;
+        --text: #1e1e1e;
+        --correct: #2ecc71;
+        --wrong: #e74c3c;
+    }
+    body {
+        font-family: "Segoe UI", sans-serif;
+        background: var(--bg);
+        margin: 0;
+        padding: 20px;
+    }
+    .container {
+        max-width: 750px;
+        margin: auto;
+    }
+    h1 {
+        text-align: center;
+        color: var(--primary);
+        margin-bottom: 30px;
+        font-weight: 700;
+    }
+
+    .question-box {
+        background: var(--card-bg);
+        padding: 22px;
+        margin-bottom: 20px;
+        border-radius: 14px;
+        box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+        transition: 0.25s;
+    }
+    .question-box:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 26px rgba(0,0,0,0.12);
+    }
+
+    .question-box p {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: var(--text);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        padding: 8px 10px;
+        background: #f0f3fa;
+        border-radius: 8px;
+        transition: 0.2s;
+        cursor: pointer;
+    }
+    label:hover {
+        background: #e2e7f4;
+    }
+
+    input[type="radio"] {
+        margin-right: 8px;
+    }
+
+    button {
+        width: 100%;
+        padding: 16px;
+        font-size: 18px;
+        font-weight: 600;
+        cursor: pointer;
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        transition: 0.2s;
+        margin-top: 20px;
+    }
+    button:hover {
+        background: var(--primary-hover);
+    }
+
+    #result {
+        margin-top: 30px;
+        padding: 20px;
+        font-size: 18px;
+        font-weight: 600;
+        background: var(--card-bg);
+        border-radius: 14px;
+        box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    }
+
+    .correct { color: var(--correct); font-weight: 600; }
+    .wrong { color: var(--wrong); font-weight: 600; }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Վեբ ծրագրավորման Թեստ</h1>
+
+<form id="quizForm">
+
+    <!-- QUESTIONS (unchanged, only design better) -->
+    <div class="question-box">
+        <p>1. Ո՞ր թեգում է հիմնական բովանդակությունը։</p>
+        <label><input type="radio" name="q1" value="C"> &lt;body&gt;</label>
+        <label><input type="radio" name="q1" value="A"> &lt;section&gt;</label>
+        <label><input type="radio" name="q1" value="B"> &lt;article&gt;</label>
+        <label><input type="radio" name="q1" value="D"> &lt;header&gt;</label>
+    </div>
+
+    <div class="question-box">
+        <p>2. Ո՞ր ատրիբուտն է հղման հասցեն։</p>
+        <label><input type="radio" name="q2" value="A"> href</label>
+        <label><input type="radio" name="q2" value="B"> src</label>
+        <label><input type="radio" name="q2" value="C"> link</label>
+        <label><input type="radio" name="q2" value="D"> target</label>
+    </div>
+
+    <div class="question-box">
+        <p>3. Ո՞ր թեգը նշում է նավիգացիոն մենյուն։</p>
+        <label><input type="radio" name="q3" value="A"> &lt;nav&gt;</label>
+        <label><input type="radio" name="q3" value="B"> &lt;aside&gt;</label>
+        <label><input type="radio" name="q3" value="C"> &lt;footer&gt;</label>
+        <label><input type="radio" name="q3" value="D"> &lt;div&gt;</label>
+    </div>
+
+    <div class="question-box">
+        <p>4. Ո՞ր ատրիբուտն է պարտադիր նկարների համար։</p>
+        <label><input type="radio" name="q4" value="B"> alt</label>
+        <label><input type="radio" name="q4" value="A"> title</label>
+        <label><input type="radio" name="q4" value="C"> role</label>
+        <label><input type="radio" name="q4" value="D"> desc</label>
+    </div>
+
+    <!-- CSS (same questions) -->
+    <div class="question-box">
+        <p>5. Իդենտիֆիկատորի ճիշտ սելեկտորը?</p>
+        <label><input type="radio" name="q5" value="B"> #my-id</label>
+        <label><input type="radio" name="q5" value="A"> .my-id</label>
+        <label><input type="radio" name="q5" value="C"> my-id</label>
+        <label><input type="radio" name="q5" value="D"> id.my-id</label>
+    </div>
+
+    <div class="question-box">
+        <p>6. Ո՞ր հատկությունն է Flexbox-ը?</p>
+        <label><input type="radio" name="q6" value="B"> display: flex</label>
+        <label><input type="radio" name="q6" value="A"> display: grid</label>
+        <label><input type="radio" name="q6" value="C"> position: absolute</label>
+        <label><input type="radio" name="q6" value="D"> float: left</label>
+    </div>
+
+    <div class="question-box">
+        <p>7. Ի՞նչ է անում box-sizing: border-box;</p>
+        <label><input type="radio" name="q7" value="B"> padding և border՝ width-ի մեջ</label>
+        <label><input type="radio" name="q7" value="A"> հանում է margin</label>
+        <label><input type="radio" name="q7" value="C"> դարձնում է inline-block</label>
+        <label><input type="radio" name="q7" value="D"> կենտրոնացնում է</label>
+    </div>
+
+    <div class="question-box">
+        <p>8. Media query մինչև 768px:</p>
+        <label><input type="radio" name="q8" value="B"> @media (max-width: 768px)</label>
+        <label><input type="radio" name="q8" value="A"> @media (min-width: 768px)</label>
+        <label><input type="radio" name="q8" value="C"> @media (device-width: 768px)</label>
+        <label><input type="radio" name="q8" value="D"> @media print</label>
+    </div>
+
+    <!-- JavaScript -->
+    <div class="question-box">
+        <p>9. typeof NaN ?</p>
+        <label><input type="radio" name="q9" value="A"> "number"</label>
+        <label><input type="radio" name="q9" value="B"> "NaN"</label>
+        <label><input type="radio" name="q9" value="C"> "object"</label>
+        <label><input type="radio" name="q9" value="D"> "undefined"</label>
+    </div>
+
+    <div class="question-box">
+        <p>10. Ո՞ր մեթոդը վերադարձնում է նոր զանգված:</p>
+        <label><input type="radio" name="q10" value="B"> map</label>
+        <label><input type="radio" name="q10" value="A"> forEach</label>
+        <label><input type="radio" name="q10" value="C"> filter</label>
+        <label><input type="radio" name="q10" value="D"> reduce</label>
+    </div>
+
+    <div class="question-box">
+        <p>11. Ինչ տարբերություն կա == և === միջև?</p>
+        <label><input type="radio" name="q11" value="B"> === չի փոխարկում տիպը</label>
+        <label><input type="radio" name="q11" value="A"> տարբերություն չկա</label>
+        <label><input type="radio" name="q11" value="C"> == չի ստուգում արժեքը</label>
+        <label><input type="radio" name="q11" value="D"> === միայն տիպն է ստուգում</label>
+    </div>
+
+    <div class="question-box">
+        <p>12. Ճիշտ ֆունկցիայի հայտարարում?</p>
+        <label><input type="radio" name="q12" value="B"> function myFunc() {}</label>
+        <label><input type="radio" name="q12" value="A"> function myFunc {}</label>
+        <label><input type="radio" name="q12" value="C"> func myFunc()</label>
+        <label><input type="radio" name="q12" value="D"> myFunc: function {}</label>
+    </div>
+
+    <!-- JS OOP -->
+    <div class="question-box">
+        <p>13. Ճիշտ constructor function:</p>
+        <label><input type="radio" name="q13" value="C"> function User(n){ this.name=n; }</label>
+        <label><input type="radio" name="q13" value="A"> class User {}</label>
+        <label><input type="radio" name="q13" value="B"> var User = new Object()</label>
+        <label><input type="radio" name="q13" value="D"> User(n){ this.name=n; }</label>
+    </div>
+
+    <div class="question-box">
+        <p>14. Ինչպե՞ս ստեղծել օբյեկտ constructor-ից։</p>
+        <label><input type="radio" name="q14" value="B"> new User(name)</label>
+        <label><input type="radio" name="q14" value="A"> User(name)</label>
+        <label><input type="radio" name="q14" value="C"> call User()</label>
+        <label><input type="radio" name="q14" value="D"> User = new</label>
+    </div>
+
+    <div class="question-box">
+        <p>15. Ինչպե՞ս ավելացնել մեթոդ պրոտոտիպին։</p>
+        <label><input type="radio" name="q15" value="B"> User.prototype.run = function(){}</label>
+        <label><input type="radio" name="q15" value="A"> User.method = function(){}</label>
+        <label><input type="radio" name="q15" value="C"> User.protorun()</label>
+        <label><input type="radio" name="q15" value="D"> User.run {}</label>
+    </div>
+
+    <div class="question-box">
+        <p>16. Ինչպես անել ժառանգում constructor-ներով?</p>
+        <label><input type="radio" name="q16" value="C"> Dog.prototype = new Animal()</label>
+        <label><input type="radio" name="q16" value="A"> Dog extends Animal</label>
+        <label><input type="radio" name="q16" value="B"> Dog.prototype = Animal</label>
+        <label><input type="radio" name="q16" value="D"> Animal(Dog)</label>
+    </div>
+
+    <button type="button" onclick="checkAnswers()">Ստուգել արդյունքը</button>
+</form>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+const correct = {
+    q1:"C", q2:"A", q3:"A", q4:"B",
+    q5:"B", q6:"B", q7:"B", q8:"B",
+    q9:"A", q10:"B", q11:"B", q12:"B",
+    q13:"C", q14:"B", q15:"B", q16:"C"
+};
+
+function checkAnswers() {
+    let score = 0;
+    let details = "";
+
+    for (let q in correct) {
+        let user = document.querySelector('input[name="'+q+'"]:checked');
+        if (!user) {
+            details += `<p class="wrong">${q}: Չկա պատասխան</p>`;
+            continue;
+        }
+        if (user.value === correct[q]) {
+            score++;
+            details += `<p class="correct">${q}: Ճիշտ</p>`;
+        } else {
+            details += `<p class="wrong">${q}: Սխալ (ճիշտ՝ ${correct[q]})</p>`;
+        }
+    }
+
+    document.getElementById("result").innerHTML =
+        `<p>Արդյունք: ${score} / 16</p>` + details;
+}
+</script>
+
+</body>
+</html>
