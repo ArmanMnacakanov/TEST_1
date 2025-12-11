@@ -191,13 +191,14 @@
         <label><input type="radio" name="q10" value="D"> reduce</label>
     </div>
 
-    <div class="question-box">
-        <p>11. Ինչ տարբերություն կա == և === միջև?</p>
-        <label><input type="radio" name="q11" value="B"> === չի փոխարկում տիպը</label>
-        <label><input type="radio" name="q11" value="A"> տարբերություն չկա</label>
-        <label><input type="radio" name="q11" value="C"> == չի ստուգում արժեքը</label>
-        <label><input type="radio" name="q11" value="D"> === միայն տիպն է ստուգում</label>
-    </div>
+   <div class="question-box">
+    <p>11. Ինչ տարբերություն կա == և === միջև?</p>
+    <label><input type="radio" name="q11" value="B"> === ստուգում է նաև տիպը, ոչ միայն արժեքը</label>
+    <label><input type="radio" name="q11" value="A"> տարբերություն չկա</label>
+    <label><input type="radio" name="q11" value="C"> == չի ստուգում արժեքը</label>
+    <label><input type="radio" name="q11" value="D"> === միայն տիպն է ստուգում</label>
+</div>
+
 
     <div class="question-box">
         <p>12. Ճիշտ ֆունկցիայի հայտարարում?</p>
@@ -232,13 +233,14 @@
         <label><input type="radio" name="q15" value="D"> User.run {}</label>
     </div>
 
-    <div class="question-box">
-        <p>16. Ինչպես անել ժառանգում constructor-ներով?</p>
-        <label><input type="radio" name="q16" value="C"> Dog.prototype = new Animal()</label>
-        <label><input type="radio" name="q16" value="A"> Dog extends Animal</label>
-        <label><input type="radio" name="q16" value="B"> Dog.prototype = Animal</label>
-        <label><input type="radio" name="q16" value="D"> Animal(Dog)</label>
-    </div>
+   <div class="question-box">
+    <p>16. Ինչպես անել ժառանգում constructor-ներով (ոչ ES6)?</p>
+    <label><input type="radio" name="q16" value="A"> Dog.prototype = Object.create(Animal.prototype)</label>
+    <label><input type="radio" name="q16" value="B"> Dog extends Animal</label>
+    <label><input type="radio" name="q16" value="C"> Dog.prototype = new Animal()</label>
+    <label><input type="radio" name="q16" value="D"> Animal(Dog)</label>
+</div>
+
 
     <button type="button" onclick="checkAnswers()">Ստուգել արդյունքը</button>
 </form>
